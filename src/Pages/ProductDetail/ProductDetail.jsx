@@ -5,6 +5,8 @@ function ProductDetail() {
     <LayOut>
         <div>
       Product detail page
+      {
+      }
     </div> 
     </LayOut>
    
