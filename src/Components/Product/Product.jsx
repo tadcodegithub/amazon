@@ -8,11 +8,11 @@ function Product() {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setProducts(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, []);
   return (
