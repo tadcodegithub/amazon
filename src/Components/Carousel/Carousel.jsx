@@ -13,7 +13,7 @@ function CarouselEffect() {
         showThumbs={false}
       >
         {img_data?.map((single_img, i) => {
-          return <img src={single_img} />;
+          return <img key={i} src={single_img} />;
         })}
       </Carousel>
       <div className={styles.hero_img}></div>

@@ -4,6 +4,7 @@ import { BiCart } from "react-icons/bi";
 import { BsSearch } from "react-icons/bs";
 import { SlLocationPin } from "react-icons/sl";
 import LowerHeader from "./LowerHeader";
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
@@ -11,9 +12,9 @@ function Header() {
         <div className={styles.header_container}>
           <div className={styles.logo_container}>
             {/* for logo */}
-            <a href="">
+            <Link to="/">
               <img src="/amazon_logo_white.png" alt="" />
-            </a>
+            </Link>
 
             <div className={styles.delivery}>
               <span>
@@ -49,23 +50,23 @@ function Header() {
               </select>
             </a>
             {/* sign in  */}
-            <a href="" className="">
+            <Link to="/auth" className="">
               <div className="">
                 <p>Sign IN</p>
                 <span>Account & Lists</span>
               </div>
-            </a>
+            </Link>
             {/* orders */}
-            <a href="">
+            <Link to="/orders">
               <p>Returns</p>
               <span>& orders</span>
-            </a>
+            </Link>
             {/* cart */}
-            <a href="" className={styles.cart}>
+            <Link to="/cart" className={styles.cart}>
               {/* cart icon */}
-              <BiCart size={35}/>
+              <BiCart size={35} />
               <span>0</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

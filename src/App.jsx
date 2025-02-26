@@ -1,13 +1,11 @@
 import React from "react";
-import Header from "./Components/Header/Header";
-import Carousel from "./Components/Carousel/Carousel";
-import Catagory from "./Components/Catagory/Catagory";
+import LayOut from "./Components/LayOut/LayOut";
+import Routing from "./Routing";
+
 function App() {
   return (
     <div>
-      <Header />
-      <Carousel />
-      <Catagory />
+      <Routing />
     </div>
   );
 }

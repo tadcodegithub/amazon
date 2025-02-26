@@ -6,7 +6,7 @@ function Catagory() {
   return (
     <section className={styles.catagory_container}>
       {catagoryInfos?.map((sinleProduct, i) => {
-        return <CatagoryCard data={sinleProduct} />;
+        return <CatagoryCard key={i} data={sinleProduct} />;
       })}
     </section>
   );
