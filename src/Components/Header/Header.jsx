@@ -6,8 +6,11 @@ import { SlLocationPin } from "react-icons/sl"
 import LowerHeader from "./LowerHeader"
 import { Link } from "react-router-dom"
 import { DataContext } from "../DataProvider/DataProvide"
+
 function Header() {
   const [{ basket }, dispatch] = useContext(DataContext)
+  const totalproduct = basket.reduce((sum, item) => sum + item.amount, 0)
+
   return (
     <>
       <section className={styles.header_fixed}>
@@ -66,8 +69,9 @@ function Header() {
             {/* cart */}
             <Link to="/cart" className={styles.cart}>
               {/* cart icon */}
-              <BiCart size={35} />
-              <span>{basket.length}</span>
+              {/* <BiCart size={50} /> */}
+              <img src="/cart2.png" alt="" />
+              <span>{totalproduct}</span>
             </Link>
           </div>
         </div>

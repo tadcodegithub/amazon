@@ -18,7 +18,7 @@ function Product() {
   return (
     <section className={styles.product_container}>
       {products?.map((singleProduct, i) => {
-        return <ProductCard key={i} data={singleProduct} />;
+        return <ProductCard key={i} data={singleProduct} renderAdd={true} />
       })}
     </section>
   );

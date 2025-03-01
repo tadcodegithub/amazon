@@ -28,10 +28,14 @@ function ProductDetail() {
   // console.log(product)
 
   return (
-  <LayOut>
-
-{isLoading?(<Loader />):(<ProductCard data={product} flex={true} renderDesc={true}/>)}
- </LayOut>)
+    <LayOut>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <ProductCard data={product} flex={true} renderDesc={true} renderAdd ={true}/>
+      )}
+    </LayOut>
+  )
 }
 
 export default ProductDetail

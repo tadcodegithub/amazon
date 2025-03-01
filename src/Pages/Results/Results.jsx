@@ -36,7 +36,13 @@ function Results() {
         ) : (
           <div className={style.products_container}>
             {results?.map((sinleproduct) => {
-              return <ProductCard key={sinleproduct.id} data={sinleproduct} />
+              return (
+                <ProductCard
+                  key={sinleproduct.id}
+                  data={sinleproduct}
+                  renderAdd={true}
+                />
+              )
             })}
           </div>
         )}

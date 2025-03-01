@@ -100,15 +100,19 @@
 }
 .cart {
   position: relative;
+  left: -10px;
 }
 .cart span {
   position: absolute;
-  font-weight: bold;
-  top: -7px;
-  font-size: 20px;
+  font-weight: 800;
+  /* top: -1px; */
+  font-size: 12px;
   background-color: #131921;
-  left: 16px;
+  left: 23px;
   color: orange;
+}
+.cart img{
+  width: 75px;
 }
 .order_container a:hover,
 .delivery:hover,

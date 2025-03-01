@@ -5,8 +5,8 @@ import styles from "./product.module.css"
 import { Link } from "react-router-dom"
 import { DataContext } from "../DataProvider/DataProvide"
 import { Type } from "../../Utility/action.type"
-function ProductCard({ data, flex, renderDesc }) {
-    console.log(data);
+function ProductCard({ data, flex, renderDesc ,renderAdd }) {
+    // console.log(data);
   const { image, title, id, rating, price, description } = data
 
   const [state,dispatch]=useContext(DataContext)
@@ -29,7 +29,7 @@ function ProductCard({ data, flex, renderDesc }) {
       </Link>
       <div className="">
         <h3>{title}</h3>
-        {renderDesc && <div style={{maxWidth:"500px"}}>{description}</div>}
+        {renderDesc && <div style={{ maxWidth: "600px" }}>{description}</div>}
         <div className={styles.rating}>
           {/* rating */}
           <Rating value={rating.rate} precision={0.1} />
@@ -40,7 +40,12 @@ function ProductCard({ data, flex, renderDesc }) {
           {/* //price */}
           <CurrencyFormat amount={price} />
         </div>
-        <button className={styles.button} onClick={addToCart}>add to cart</button>
+        {renderAdd && (
+          <button className={styles.button} onClick={addToCart}>
+            add to cart
+          </button>
+        )}
+        
       </div>
     </div>
   )
