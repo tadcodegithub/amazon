@@ -34,9 +34,8 @@
 .delivery p {
   font-size: 10px;
 }
-.delivery span{
+.delivery span {
   margin-top: auto;
-  
 }
 .search {
   display: flex;
@@ -145,9 +144,9 @@
     height: auto;
   }
   .lower_header ul li:not(:first-child) {
-  display: none;
+    display: none;
   }
-  .language{
+  .language {
     display: none;
   }
 }

@@ -1,0 +1,10 @@
+{
+  "ts": {
+    "compilerOptions": {
+      "jsx": "react"
+    }
+  },
+  "plugins": [
+    "jsdom-quokka-plugin"
+  ]
+}

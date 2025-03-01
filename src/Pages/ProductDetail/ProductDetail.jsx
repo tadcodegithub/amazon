@@ -4,16 +4,22 @@ import LayOut from "../../Components/LayOut/LayOut"
 import axios from "axios"
 import { productUrl } from "../../Api/endPoints"
 import ProductCard from "../../Components/Product/ProductCard"
+import Loader from "../../Components/Loader/Loader"
 
 function ProductDetail() {
   const { productId } = useParams()
+  // console.log(productId)
+
   const [product, SetProducts] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
+    setIsLoading(true)
     axios
-      .get(`https://fakestoreapi.com/products/${productId}`)
+      .get(`${productUrl}/products/${productId}`)
       .then((res) => {
         // console.log(res)
         SetProducts(res.data)
+        setIsLoading(false)
       })
       .catch((err) => {
         // console.log(err);
@@ -22,15 +28,10 @@ function ProductDetail() {
   // console.log(product)
 
   return (
-    <LayOut>
-      {/* {console.log(product.rating ? "rating" : "not rating")} */}
-      {product.rating ? (
-        <ProductCard data={product} />
-      ) : (
-        <p>Loding product details</p>
-      )}
-    </LayOut>
-  )
+  <LayOut>
+
+{isLoading?(<Loader />):(<ProductCard data={product} flex={true} renderDesc={true}/>)}
+ </LayOut>)
 }
 
 export default ProductDetail

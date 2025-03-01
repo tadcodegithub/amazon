@@ -3,7 +3,7 @@
     height: 250px;
     width: 250px;
     background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .catagory img{
     width: 100%;
@@ -28,7 +28,7 @@
 /* for parent catagory */
 .catagory_container{
     position: relative;
-    margin-top: -10%;
+    margin-top: -25%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     place-items: center;

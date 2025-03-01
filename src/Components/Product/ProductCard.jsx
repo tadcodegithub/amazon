@@ -1,18 +1,35 @@
-import React from "react";
-import Rating from "@mui/material/Rating";
-import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
-import styles from "./product.module.css";
-import { Link } from "react-router-dom";
-function ProductCard({ data }) {
-//   console.log(data);
-  const { image, title, id, rating, price } = data;
+import React, { useContext } from "react"
+import Rating from "@mui/material/Rating"
+import CurrencyFormat from "../CurrencyFormat/CurrencyFormat"
+import styles from "./product.module.css"
+import { Link } from "react-router-dom"
+import { DataContext } from "../DataProvider/DataProvide"
+import { Type } from "../../Utility/action.type"
+function ProductCard({ data, flex, renderDesc }) {
+    console.log(data);
+  const { image, title, id, rating, price, description } = data
+
+  const [state,dispatch]=useContext(DataContext)
+  // console.log(state);
+  
+  const addToCart = () => {
+    dispatch({
+      type: Type.ADD_TO_BASKET,
+      item: { image, title, id, rating, price, description },
+    })
+  }
   return (
-    <div className={styles.card_container}>
+    <div
+      className={`${styles.card_container} ${
+        flex ? styles.product_flexed : ""
+      }`}
+    >
       <Link to={`/products/${id}`}>
         <img src={image} alt="" />
       </Link>
       <div className="">
         <h3>{title}</h3>
+        {renderDesc && <div style={{maxWidth:"500px"}}>{description}</div>}
         <div className={styles.rating}>
           {/* rating */}
           <Rating value={rating.rate} precision={0.1} />
@@ -23,10 +40,10 @@ function ProductCard({ data }) {
           {/* //price */}
           <CurrencyFormat amount={price} />
         </div>
+        <button className={styles.button} onClick={addToCart}>add to cart</button>
       </div>
-      <button className={styles.button}>add to cart</button>
     </div>
-  );
+  )
 }
 
-export default ProductCard;
+export default ProductCard
