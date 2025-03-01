@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
-import styles from "./header.module.css";
-import { BiCart } from "react-icons/bi";
-import { BsSearch } from "react-icons/bs";
-import { SlLocationPin } from "react-icons/sl";
-import LowerHeader from "./LowerHeader";
-import { Link } from "react-router-dom";
-import { DataContext } from "../DataProvider/DataProvide";
-function Header() { 
-  const [{ basket }, dispatch] = useContext(DataContext);
+import React, { useContext } from "react"
+import styles from "./header.module.css"
+import { BiCart } from "react-icons/bi"
+import { BsSearch } from "react-icons/bs"
+import { SlLocationPin } from "react-icons/sl"
+import LowerHeader from "./LowerHeader"
+import { Link } from "react-router-dom"
+import { DataContext } from "../DataProvider/DataProvide"
+function Header() {
+  const [{ basket }, dispatch] = useContext(DataContext)
   return (
     <>
-      <section>
+      <section className={styles.header_fixed}>
         <div className={styles.header_container}>
           <div className={styles.logo_container}>
             {/* for logo */}
@@ -71,10 +71,10 @@ function Header() {
             </Link>
           </div>
         </div>
+        <LowerHeader />
       </section>
-      <LowerHeader />
     </>
-  );
+  )
 }
 
-export default Header;
+export default Header
