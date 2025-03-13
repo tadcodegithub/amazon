@@ -24,7 +24,7 @@ function Payment() {
   const elements = useElements()
   const navigate = useNavigate()
   const handelChane = (e) => {
-    console.log(e)
+    // console.log(e)
     e?.error?.message ? setCardError(e?.error?.message) : setCardError("")
   }
   const handelPaymnet = async (e) => {
@@ -39,7 +39,7 @@ function Payment() {
         method: "POST",
         url: `/payment/create?total=${total * 100}`,
       })
-      console.log(responce.data)
+      // console.log(responce.data)
       const clientSecrete = responce.data?.clientScret
 
       //2. client side(react side) cnfirmation using stripe
@@ -49,7 +49,7 @@ function Payment() {
           card: elements.getElement(CardElement),
         },
       })
-      console.log(paymentIntent)
+      // console.log(paymentIntent)
 
       //3. after the confirmation ---> order firestore database save, clear basket
       //first please on service on firebase

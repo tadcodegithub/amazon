@@ -15,7 +15,7 @@ function Orders() {
         .collection("orders")
         .orderBy("created", "desc")
         .onSnapshot((snapshat) => {
-          console.log(snapshat)
+          // console.log(snapshat)
           setOrders(
             snapshat.docs.map((doc, i) => ({
               id: doc.id,
@@ -27,7 +27,7 @@ function Orders() {
       setOrders([])
     }
   }, [])
-  console.log(orders)
+  // console.log(orders)
   return (
     <LayOut>
       <section className={style.container}>

@@ -15,7 +15,7 @@ function Auth() {
   const [error, setError] = useState("")
   //
   const [loading, setLoading] = useState({ signIn: false, signUp: false })
-  console.log(email, password);
+  // console.log(email, password);
 
   const [{ user }, dispatch] = useContext(DataContext)
   // console.log(user)
@@ -30,7 +30,7 @@ function Auth() {
       setLoading({ ...loading, signIn: true })
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          console.log(userCredential)
+          // console.log(userCredential)
           dispatch({
             type: "SET_USER",
             user: userCredential.user,
