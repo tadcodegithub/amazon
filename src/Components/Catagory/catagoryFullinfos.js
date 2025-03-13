@@ -24,4 +24,4 @@ export const catagoryInfos = [
     name: "women's clothing",
     imageLink: "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
   },
-];
+]

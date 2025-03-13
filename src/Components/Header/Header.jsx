@@ -6,9 +6,9 @@ import { SlLocationPin } from "react-icons/sl"
 import LowerHeader from "./LowerHeader"
 import { Link } from "react-router-dom"
 import { DataContext } from "../DataProvider/DataProvide"
-
+import { auth } from "../../Utility/firebase"
 function Header() {
-  const [{ basket }, dispatch] = useContext(DataContext)
+  const [{ basket, user }, dispatch] = useContext(DataContext)
   const totalproduct = basket.reduce((sum, item) => sum + item.amount, 0)
 
   return (
@@ -39,7 +39,7 @@ function Header() {
             </select>
             <input type="text" name="" id="" placeholder="Search product" />
             {/* search icon */}
-            <BsSearch size={25} />
+            <BsSearch size={38} />
           </div>
           <div className={styles.order_container}>
             {/* right side link */}
@@ -55,11 +55,22 @@ function Header() {
               </select>
             </a>
             {/* sign in  */}
-            <Link to="/auth" className="">
+            <Link to={!user && "/auth"} className="">
               <div className="">
-                <p>Sign IN</p>
-                <span>Account & Lists</span>
+                {user ? (
+                  <>
+                    <p>Hello {user?.email.split("@")[0]}</p>
+                    <span onClick={() => auth.signOut()}>Sign Out</span>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <p>Hello, Sign In</p>
+                    <span>Account & Lists</span>
+                  </>
+                )}
               </div>
+              <div className=""></div>
             </Link>
             {/* orders */}
             <Link to="/orders">

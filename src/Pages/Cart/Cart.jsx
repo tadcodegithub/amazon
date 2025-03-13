@@ -39,7 +39,7 @@ function Cart() {
           ) : (
             basket?.map((item, i) => {
               return (
-                <section className={style.cart_product}>
+                <section className={style.cart_product} key={i}>
                   <ProductCard
                     key={i}
                     data={item}
@@ -48,11 +48,17 @@ function Cart() {
                     renderAdd={false}
                   />
                   <div className={style.cart_addmin}>
-                    <button className={style.btn} onClick={() => increment(item)}>
+                    <button
+                      className={style.btn}
+                      onClick={() => increment(item)}
+                    >
                       <IoIosArrowUp size={30} />
                     </button>
                     <span>{item.amount}</span>
-                    <button className={style.btn} onClick={() => decrement(item.id)}>
+                    <button
+                      className={style.btn}
+                      onClick={() => decrement(item.id)}
+                    >
                       <IoIosArrowDown size={30} />
                     </button>
                   </div>
