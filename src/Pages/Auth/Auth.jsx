@@ -130,7 +130,7 @@ function Auth() {
             "Create your Amazon Account"
           )}
         </button>
-        {error && <small>{error}</small>}
+        {error && <small style={{ color: "red" }}>{error}</small>}
       </div>
     </section>
   )
